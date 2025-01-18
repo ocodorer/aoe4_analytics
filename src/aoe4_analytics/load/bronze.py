@@ -13,9 +13,6 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 from sqlalchemy import insert
 
-
-
-
 class Base(DeclarativeBase):
     pass
 

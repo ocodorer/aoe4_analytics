@@ -1,7 +1,7 @@
 
 from sqlalchemy import Column, Integer
 from sqlalchemy.orm import declarative_base
-from db import get_aoe4_json_basecols, get_metadata_cols, Base, get_engine, BRONZE_DB
+from src.aoe4_analytics.database.db import get_aoe4_json_basecols, get_metadata_cols, Base, get_engine, BRONZE_DB
 
 Base = declarative_base() # **get_base_cols(), **get_metadata_cols()
 

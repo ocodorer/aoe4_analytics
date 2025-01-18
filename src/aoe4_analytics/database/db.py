@@ -15,13 +15,14 @@ from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
 from sqlalchemy import create_engine
-engine = create_engine('sqlite:///test.db', echo=True)
+
 from sqlalchemy import Column, Integer,Float,DateTime, String, MetaData
-metadata = MetaData()
 from sqlalchemy.orm import sessionmaker
 
 from sqlalchemy.orm import declarative_base
+metadata = MetaData()
 
+engine = create_engine('sqlite:///test.db', echo=True)
 STORAGE = "/home/oadmin/oetl/storage/"
 BRONZE_DB = "bronze.sqlite"
 SILVER_DB = "silver.sqlite"
@@ -32,10 +33,10 @@ METADATA_COLS = [
 ]
 
 
-def initialize_sqlite_table(name:str, database:str, cols, surrogate_key:str): 
-    conn = sqlite3.connect(path.join(STORAGE, f'{database}.sqlite'))
-    cur = conn.cursor()
-    cur.execute(f'CREATE TABLE {name} ({surrogate_key} INT, {','.join(f'{colname} {dtype}' for colname, dtype in cols)}, {','.join(f'{colname} {dtype}' for colname, dtype in METADATA_COLS)});')
+# def initialize_sqlite_table(name:str, database:str, cols, surrogate_key:str): 
+#     conn = sqlite3.connect(path.join(STORAGE, f'{database}.sqlite'))
+#     cur = conn.cursor()
+#     cur.execute(f'CREATE TABLE {name} ({surrogate_key} INT, {','.join(f'{colname} {dtype}' for colname, dtype in cols)}, {','.join(f'{colname} {dtype}' for colname, dtype in METADATA_COLS)});')
 
 from datetime import datetime
 

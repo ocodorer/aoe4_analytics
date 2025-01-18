@@ -1,1 +1,1 @@
-import src.aoe4_analytics.load.bronze
+from src.aoe4_analytics.load.bronze import main
